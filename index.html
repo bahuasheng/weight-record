@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#143b35" />
+    <meta name="description" content="简洁的本地体重记录工具" />
+    <title>体重记录</title>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">DAILY WELLNESS</p>
+        <div class="headline-row">
+          <div>
+            <h1>体重记录</h1>
+            <p class="subtitle">用轻松的方式，看见每一步变化。</p>
+          </div>
+          <span class="status-dot" aria-label="数据保存在本机"></span>
+        </div>
+      </header>
+
+      <section class="entry-card" aria-labelledby="entry-title">
+        <div class="section-heading">
+          <h2 id="entry-title">记录一次</h2>
+          <span>数据仅保存在此浏览器</span>
+        </div>
+        <form id="entry-form">
+          <label class="weight-label" for="weight">
+            <span>体重</span>
+            <span class="weight-input-wrap"><input id="weight" name="weight" type="number" min="1" max="500" step="0.1" inputmode="decimal" placeholder="例如 65.5" required /><b>KG</b></span>
+          </label>
+          <label class="date-label" for="record-date">
+            <span>日期</span>
+            <input id="record-date" name="record-date" type="date" required />
+          </label>
+          <button type="submit">保存记录 <span aria-hidden="true">→</span></button>
+        </form>
+        <p id="message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section class="summary" aria-label="数据概览">
+        <article><span>最新体重</span><strong id="latest-value">—</strong><small id="latest-date">还没有记录</small></article>
+        <article><span>与上次相比</span><strong id="change-value">—</strong><small>根据最近两次记录</small></article>
+        <article><span>累计记录</span><strong id="count-value">0</strong><small>次</small></article>
+      </section>
+
+      <section class="history" aria-labelledby="history-title">
+        <div class="history-heading">
+          <h2 id="history-title">记录历史</h2>
+          <button id="clear-button" class="text-button" type="button" hidden>清空全部</button>
+        </div>
+        <div id="empty-state" class="empty-state">
+          <span>⌁</span>
+          <p>今天还没有体重记录</p>
+          <small>从上方输入体重，开始追踪你的变化。</small>
+        </div>
+        <ul id="history-list" class="history-list" aria-live="polite"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
