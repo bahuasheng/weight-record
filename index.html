@@ -45,6 +45,26 @@
         <article><span>累计记录</span><strong id="count-value">0</strong><small>次</small></article>
       </section>
 
+      <section id="trend-section" class="trend-card" aria-labelledby="trend-title" hidden>
+        <div class="trend-heading">
+          <div>
+            <p class="eyebrow">WEIGHT TREND</p>
+            <h2 id="trend-title">体重趋势</h2>
+          </div>
+          <div class="chart-controls" aria-label="曲线缩放控制">
+            <button id="zoom-out" type="button" aria-label="缩小时间范围">−</button>
+            <button id="zoom-reset" type="button">全部</button>
+            <button id="zoom-in" type="button" aria-label="放大时间范围">＋</button>
+          </div>
+        </div>
+        <p class="chart-hint">横轴为日期，纵轴为体重（KG）。可使用按钮或在曲线上滚动缩放。</p>
+        <div id="chart-wrap" class="chart-wrap">
+          <svg id="trend-chart" viewBox="0 0 720 280" role="img" aria-describedby="chart-summary"></svg>
+          <div id="chart-tooltip" class="chart-tooltip" hidden></div>
+        </div>
+        <p id="chart-summary" class="sr-only"></p>
+      </section>
+
       <section class="history" aria-labelledby="history-title">
         <div class="history-heading">
           <h2 id="history-title">记录历史</h2>
